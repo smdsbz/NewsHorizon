@@ -8,10 +8,12 @@ A simple website that presents you with latest feats of tech, using source from 
 ## Back-end
 ### 后台函数格式要求
 ```
-def name_of_the_function():
+def get():
     '''
+      统一函数名称，而使用不同的文件名，方便我在主程序中调用！！
+      
       format requirement:
-      data = {'NEWS BIGGIE': ['8 March, 2017', 大家想想这里还要什么。。。], 'SECOND FEAT': [...], ...}
+      data = {'NEWS BIGGIE': ['8 March, 2017', etc.], 'SECOND FEAT': [...], ...}
       
       返回格式要求：
       data = 
