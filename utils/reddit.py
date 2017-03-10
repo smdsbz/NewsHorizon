@@ -40,10 +40,12 @@ def get():
 
 
     # 做饭
-    treated = dict()
+    treated = []
     for each in raw:
         # 打算把所有的新闻都搜集到数据库的一个table里面，方便搜索
-        treated[each[1]] = [each[0], sTime, 'reddit']
+        treated.append(tuple(
+            [each[1], each[0], sTime, 'reddit']
+        ))
 
 
     return treated
@@ -59,19 +61,5 @@ if __name__ == '__main__':
     result = get()
 
     for each in result:
-        print(each, '@')
-        print(result[each][0], end='\n\n')
-
-    try:
-        first = result[list(result.keys())[0]]
-    except IndexError:
-        print('You\'ve got NOTHING!!!')
-    else:
-        print(
-            '\n==============================================================================\n'
-            'called on:', first[1],
-            '\t\t',
-            'source site:', first[2],
-            end='\n==============================================================================\n\n'
-        )
-        del first
+        print(each[0], '@')
+        print(each[1], end='\n\n')
