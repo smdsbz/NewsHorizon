@@ -25,11 +25,11 @@ def get():
     raw = re.findall('<h2 class=".*?"><a target="_blank" href="(.*?)">(.*?)</a>',rep.text)
     
     pre_raw1=re.findall('<div class="newsRankCon"><ul id="newsRankTabC1">(.*?)</ul>',rep.text)
-
+    #always empty
     if pre_raw1:
         raw1=re.findall('<a href="(.*?)" target="_blank">(.*?)</a>',pre_raw1[0][0])
         raw.extend(raw1)
-
+    
     '''
         print(rep.headers['content-type'])
         print(rep.encoding)
