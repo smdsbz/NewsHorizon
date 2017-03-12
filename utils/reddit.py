@@ -13,8 +13,13 @@ __author__ = 'smdsbz'
 URL = 'https://www.reddit.com/r/tech/'
 
 
-import requests, re
+import requests, re, sqlite3
 from datetime import datetime
+
+if __name__ != '__main__':
+    import globalvar  # will be imported while running main.py
+else:
+    NEWS_DB = '../database/data.db'  # debugging - using *nix style path expression
 
 
 
@@ -43,12 +48,42 @@ def get():
     treated = []
     for each in raw:
         # 打算把所有的新闻都搜集到数据库的一个table里面，方便搜索
-        treated.append(tuple(
-            [each[1], each[0], sTime, 'reddit']
-        ))
+        treated.append((each[1], each[0], sTime, 'reddit'))
 
+    # 写入数据库
+    _write_to_db(treated)
 
     return treated
+
+
+
+
+
+def _write_to_db(data):
+    '''
+      internal function:
+        write to database
+    '''
+    with sqlite3.connect(NEWS_DB) as db:
+        for each in data:
+
+            # 判断数据库中是否已有该新闻
+            SQL = 'SELECT * FROM NEWS WHERE url = "{}"'.format(each[1])
+            cur = db.execute(SQL).fetchall()
+
+            # 如果没有，则写入数据库
+            if not cur:
+                SQL = (
+                    'INSERT INTO NEWS '
+                    '(title, url, date, src) '
+                    'values ("{}", "{}", "{}", "{}")'.format(
+                        each[0], each[1], each[2], each[3]
+                    )
+                )
+                # print(SQL, end='\n\n\n')
+                cur = db.execute(SQL)
+
+        db.commit()
 
 
 
