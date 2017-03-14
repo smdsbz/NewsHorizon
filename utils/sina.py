@@ -38,8 +38,19 @@ def get():
 
     _write_to_db(raw)
 
+
+    # TODO: please modify raw to make it match the format suggested in the README.md
+    #           for this piece is going to be put to the front-end
+    #           and I REALLY don't want to make them compatible then
+    #       请在这里就把函数返回的数据结构规范好，这些东西都是要进前端的；我不可能去研究你们每一个人写的数据结构，然后为每一个人的get()函数都写一个数据结构转换，所以大家都按着README.md里的来写
+    #       做项目和自己一个人写东西最大的区别，就是你需要考虑别人方不方便调用你的函数
+    #       做项目的时候，代码好读比代码有效更重要
     return raw
     
+
+
+
+
 def _write_to_db(data):
     '''
       internal function:
