@@ -85,5 +85,5 @@ if __name__ == '__main__':
     result = get()
 
     for each in result:
-        print(each[1], '@')
-        print(each[0], end='\n\n')
+        print(each[0], '@')
+        print(each[1], end='\n\n')
