@@ -35,6 +35,13 @@ def get():
         print(rep.encoding)
         print(rep.apparent_encoding)
     '''
+    
+    oTime = datetime.now()
+    sTime = oTime.strftime('%d %B, %Y').lstrip('0')
+    
+    treated = []
+    for each in raw:
+        treated.append((each[1], each[0], sTime, 'sina'))
 
     _write_to_db(raw)
 
@@ -56,8 +63,6 @@ def _write_to_db(data):
       internal function:
         write to database
     '''
-    oTime = datetime.now()
-    sTime = oTime.strftime('%d %B, %Y').lstrip('0')
     
     with sqlite3.connect(NEWS_DB) as db:
         for each in data:
@@ -65,7 +70,7 @@ def _write_to_db(data):
             cur = db.execute(SQL).fetchall()
 
             if not cur:
-                SQL = 'INSERT INTO NEWS (title, url, date, src) values ("{}", "{}", "{}", "{}")'.format(each[1], each[0], sTime, 'sina')
+                SQL = 'INSERT INTO NEWS (title, url, date, src) values ("{}", "{}", "{}", "{}")'.format(each[0], each[1], each[2], each[3])
                 cur = db.execute(SQL)
 
         db.commit()
