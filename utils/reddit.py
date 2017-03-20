@@ -17,7 +17,7 @@ import requests, re, sqlite3
 from datetime import datetime
 
 if __name__ != '__main__':
-    import globalvar  # will be imported while running main.py
+    from globalvar import * # will be imported while running main.py
 else:
     NEWS_DB = '../database/data.db'  # debugging - using *nix style path expression
 

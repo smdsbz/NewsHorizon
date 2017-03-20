@@ -11,7 +11,7 @@ from flask import redirect, url_for, render_template
 from globalvar import *
 
 # 注册 reddit.get() 功能
-from utils.reddit import get
+from utils import reddit, sina
 
 
 ######## initialization ########
@@ -47,9 +47,8 @@ def index():
 
     # 话说我的前端啥时候好啊 /托腮
     return render_template(
-        'name_of_my_template',
-        reddit_news=reddit.get(),
-        sina_news=sina.get()
+        'demo.html',
+        reddit_news=reddit.get()
         )
 
 
@@ -59,6 +58,6 @@ def index():
 
 if __name__ == '__main__':
     app.run(
-        host='127.0.0.1'
+        host='127.0.0.1',
         debug=True
     )

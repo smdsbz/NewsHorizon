@@ -1,0 +1,109 @@
+body{
+	background:#252525 url('../pic/page_background.png') 0px 0px repeat-x;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.container{
+	min-height: 100%;
+	height: auto;
+	height: 100%;
+	position: relative;
+}
+
+.headercontainer{
+	width:60%;
+	margin-top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: auto;
+}
+
+.headleft {
+	color:#dedede;
+	float: left;
+	font-weight: 100;
+	font-family:"SimHei";
+	text-align: center;
+}
+
+.headright {
+	width: 30%;
+	height: 100%;
+	color: #dedede;
+	float:right;
+}
+
+.page{
+	padding-bottom: 130px;
+	width:60%;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: auto;
+}
+
+.footer{
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90px;
+    clear:both;
+}
+
+.footer-line{
+	height:1px;
+	margin:0px;
+	padding:0px;
+	border:none;
+	color:#353535;
+	background:#353535;
+}
+
+.footercontainer{
+	width: 60%;
+	overflow: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 15px;
+}
+
+.connect{
+	float: right;
+	height: 30px;
+	top: 50%;
+	border-right-style: solid;
+	border-width: 2px;
+	border-color: #353535;
+	padding: 10px;
+	color: #404040;
+	font-size: 110%;
+}
+
+.list{
+    height:auto;
+    overflow-y: hidden;
+ 	list-style: none;
+ 	float: right;
+}
+
+.list li{
+	width:30px;
+	height:30px;
+	padding:0px;
+	float: left;
+	margin-right:15px;
+	color: #ffffff;
+}
+
+.pic{
+	width:30px;
+	height:30px;
+	margin-left:5px;
+	float: left;
+}
+
+.pic img{
+	width:30px;
+	height:30px;
+}
