@@ -11,7 +11,13 @@ from flask import redirect, url_for, render_template
 from globalvar import *
 
 # 注册 reddit.get() 功能
-from utils import reddit, sina
+# from utils import reddit, sina
+
+from multiprocessing import Process, Queue
+import time
+
+
+from utils import NewsContainer, _INTERVAL
 
 
 ######## initialization ########
@@ -19,6 +25,24 @@ from utils import reddit, sina
 app = Flask(__name__)
 
 
+
+######## NewsBuffer ########
+
+# TODO: multiprocessing required
+
+
+#
+#
+# def refresh_buffer():
+#     NewsBuffer = NewsContainer()
+#     while True:
+#         NewsBuffer.refresh()
+#
+#
+#
+#
+# master = Queue()
+# slave_refresh = Process()
 
 
 
@@ -48,7 +72,7 @@ def index():
     # 话说我的前端啥时候好啊 /托腮
     return render_template(
         'demo.html',
-        reddit_news=reddit.get()
+        data = NewsBuffer
         )
 
 

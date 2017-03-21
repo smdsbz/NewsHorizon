@@ -7,7 +7,7 @@
 
 import time
 
-import reddit, tencent, sina
+from . import reddit, tencent, sina
 
 
 
@@ -113,14 +113,17 @@ class NewsContainer(object):
                 self._store_room[each] = tmp_buffer[each][:_MAX_SIZE]
 
 
+        time.sleep(_INTERVAL)
 
 
 
 
-NewsBuffer = NewsContainer()
 
-while (True):
-    NewsBuffer.refresh()
-    print(NewsBuffer['tencent'][0])
-    # refresh every minute
-    time.sleep(_INTERVAL)
+
+if __name__ == '__main__':
+
+    NewsBuffer = NewsContainer()
+
+    while (True):
+        NewsBuffer.refresh()
+        print(NewsBuffer['tencent'][0])

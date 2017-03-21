@@ -35,14 +35,12 @@
 		<div class="page">
 			<div class="cascade">
 				<ul class="menu">
-					<li class="one" id="one">
-						<h3>腾讯</h3>
-						<span>腾讯新闻</span>
-					</li>
-					<li class="two" id="two">
-						<h3>Reddit</h3>
-						{% for each in reddit_news %}
-						<a href="{{ each[1] }}" target="_blank">{{ each[0] }}</a>
+					<li>
+						{% for each in data %}
+							<h3>{{ each }}</h3>
+							{% for line in data[each] %}
+							<a href="{{ line[1] }}" target="_blank">{{ each[0] }}</a>
+							{% endfor %}
 						{% endfor %}
 					</li>
 					<li class="three" id="three">
