@@ -16,9 +16,9 @@ URL = 'https://www.reddit.com/r/tech/'
 import requests, re, sqlite3
 from datetime import datetime
 
-if __name__ != '__main__':
+try:
     from globalvar import * # will be imported while running main.py
-else:
+except ImportError:
     NEWS_DB = '../database/data.db'  # debugging - using *nix style path expression
 
 

@@ -3,9 +3,9 @@
 import requests, re, sqlite3
 from datetime import datetime
 
-if __name__ != '__main__':
+try:
     from globalvar import *
-else:
+except ImportError:
     NEWS_DB = '../database/data.db'
 
 
@@ -15,9 +15,9 @@ __author__ = 'guess'
 
 URL='http://tech.sina.com.cn/'
 
-if __name__!='__main__':
-    import globalvar
-else:
+try:
+    from globalvar import *
+except ImportError:
     NEWS_DB = '../database/data.db'
 
 def get():
@@ -30,7 +30,7 @@ def get():
         else:
             rep.encoding = rep.apparent_encoding
 
-    raw = re.findall('<h2 class=".*?"><a target="_blank" href="(.*?)">(.*?)</a>',rep.text)
+    raw = re.findall('<h2 class=".*?"><a target="_blank" href="(.*?)".*?>(.*?)</a>',rep.text)
 
     pre_raw1=re.findall('<div class="newsRankCon"><ul id="newsRankTabC1">(.*?)</ul>',rep.text)
     #always empty
@@ -51,7 +51,7 @@ def get():
     for each in raw:
         treated.append((each[1], each[0], sTime, 'sina'))
 
-    _write_to_db(raw)
+    _write_to_db(treated)
 
 
     return raw
@@ -68,12 +68,25 @@ def _write_to_db(data):
 
     with sqlite3.connect(NEWS_DB) as db:
         for each in data:
-            SQL = 'SELECT * FROM NEWS WHERE url = "{}"'.format(each[0])
+            SQL = 'SELECT * FROM NEWS WHERE url = "{}"'.format(each[1])
             cur = db.execute(SQL).fetchall()
 
             if not cur:
                 # TODO: IndexError: tuple index out of range
-                SQL = 'INSERT INTO NEWS (title, url, date, src) values ("{}", "{}", "{}", "{}")'.format(each[0], each[1], each[2], each[3])
+                SQL = (
+                    'INSERT INTO NEWS '
+                    '(title, url, date, src) '
+                    'values ("{}", "{}", "{}", "{}")'.format(
+                        each[0], each[1], each[2], each[3]
+                    )
+                )
+
+                '''
+                here's something I get:
+                  INSERT INTO NEWS (title, url, date, src) values ("亚马逊CEO贝索斯驾驶世界首款载人机器人", "http://tech.sina.com.cn/it/2017-03-21/doc-ifycnpit2475039.shtml" class="videoNewsLeft", "21 March, 2017", "sina")
+                '''
+
+                # print(SQL, end='\n\n\n')
                 cur = db.execute(SQL)
 
         db.commit()

@@ -18,6 +18,16 @@ __author__ = 'smdsbz'
 
 
 
+
+
+# buffer size
+_MAX_SIZE = 5
+
+# refresh interval
+_INTERVAL = 60
+
+
+
 __buffer_template = dict(
     reddit = [],
     tencent = [],
@@ -33,8 +43,6 @@ class NewsContainer(object):
     '''
 
 
-    # buffer size
-    _size = 5
 
 
 
@@ -96,13 +104,13 @@ class NewsContainer(object):
 
         for each in tmp_buffer:
 
-            if len(tmp_buffer[each]) < _size:
+            if len(tmp_buffer[each]) < _MAX_SIZE:
                 # show all if there is not much to show
                 self._store_room[each] = tmp_buffer[each]
 
             else:
                 # to avoid a long list of information on the index page
-                self._store_room[each] = tmp_buffer[each][:_size]
+                self._store_room[each] = tmp_buffer[each][:_MAX_SIZE]
 
 
 
@@ -113,5 +121,6 @@ NewsBuffer = NewsContainer()
 
 while (True):
     NewsBuffer.refresh()
+    print(NewsBuffer['tencent'][0])
     # refresh every minute
-    time.sleep(60)
+    time.sleep(_INTERVAL)
