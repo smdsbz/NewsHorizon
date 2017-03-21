@@ -13,11 +13,11 @@ from globalvar import *
 # 注册 reddit.get() 功能
 # from utils import reddit, sina
 
-from multiprocessing import Process, Queue
-import time
+# from multiprocessing import Process, Queue
+# import time
 
 
-from utils import NewsContainer, _INTERVAL
+# from utils import NewsContainer, _INTERVAL
 
 
 ######## initialization ########
