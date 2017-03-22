@@ -35,19 +35,23 @@
 		<div class="page">
 			<div class="cascade">
 				<ul class="menu">
-					<li>
-							<h3>Reddit</h3>
-							{% for line in data['reddit'] %}
+					<li class="one">
+						<h3>腾讯</h3>
+						<a href="/search.html"></a>
+					</li>
+					<li class="two">
+						<h3>Reddit</h3>
+						{% for line in data['reddit'] %}
 							<a href="{{ line[1] }}" target="_blank">{{ line[0] }}</a>
-							{% endfor %}
+						{% endfor %}
 					</li>
-					<li class="three" id="three">
+					<li class="three">
 						<h3>百度</h3>
-						<span>百度新闻</span>
+						<a href="/search.html"></a>
 					</li>
-					<li class="four" id="four">
-						<h3>头条</h3>
-						<span>今日头条</span>
+					<li class="four">
+						<h3>今日头条</h3>
+						<a href="/search.html"></a>
 					</li>
 				</ul>
 			</div>

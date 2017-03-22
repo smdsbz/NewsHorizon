@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>my demo</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/search-form.css') }}" >
+	<script src="{{ url_for('static', filename='/js/jquery-1.11.0.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='/js/function.js') }}"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="headercontainer">
+				<div class="headleft">
+					<h1>思 存 工 作 室</h1>
+					<h3>瓜 子 小 板 凳 组</h3>
+				</div>
+				<div class="headright">
+					<form onSubmit="submitFn(this, event);">
+						<div class="search-wrapper">
+							<div class="input-holder">
+								<input type="text" class="search-input" placeholder="请输入关键词" />
+								<button class="search-icon" onClick="searchToggle(this, event);"><span></span></button>
+							</div>
+							<span class="close" onClick="searchToggle(this, event);"></span>
+							<div class="result-container"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+		<div class=searchcontainer>
+			这里是搜索的内容
+		</div>
+
+
+		<div class="footer">
+			<hr class="footer-line" />
+			<div class="footercontainer">
+				<ul class="list">
+					<li><a href="http://news.qq.com/" class="pic"><img src="{{url_for('static', filename='/pic/tecent.png') }}"></a></li>
+					<li><a href="http://news.sina.com.cn/" class="pic"><img src="{{url_for('static', filename='/pic/Reddit.png') }}"></a></li>
+					<li><a href="http://news.baidu.cn/" class="pic"><img src="{{url_for('static', filename='/pic/baidu.png') }}"></a></li>
+					<li><a href="https://www.toutiao.com/" class="pic"><img src="{{url_for('static', filename='/pic/toutiao.png') }}"></a></li>
+				</ul>
+				<div class="connect">Connect</div>
+			<div>
+		</div>
+
+	</div>
+
+</body>
+</html>
