@@ -18,13 +18,13 @@
 					<h3>瓜 子 小 板 凳 组</h3>
 				</div>
 				<div class="headright">
-					<form onSubmit="submitFn(this, event);">
+					<form onSubmit="">
 						<div class="search-wrapper">
 							<div class="input-holder">
 								<input type="text" class="search-input" placeholder="请输入关键词" />
-								<button class="search-icon" onClick="searchToggle(this, event);"><span></span></button>
+								<button class="search-icon" onClick="location.href='{{ url_for('search_page') }}'"><span></span></button>
 							</div>
-							<span class="close" onClick="searchToggle(this, event);"></span>
+							<span class="close" onClick=""></span>
 							<div class="result-container"></div>
 						</div>
 					</form>
@@ -41,9 +41,6 @@
 					</li>
 					<li class="two">
 						<h3>Reddit</h3>
-						{% for line in data['reddit'] %}
-							<a href="{{ line[1] }}" target="_blank">{{ line[0] }}</a>
-						{% endfor %}
 					</li>
 					<li class="three">
 						<h3>百度</h3>

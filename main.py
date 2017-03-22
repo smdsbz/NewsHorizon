@@ -4,8 +4,8 @@
   News Horizon 新闻整合网 - 专注科技板块30年（雾
 '''
 
-from flask import Flask
-from flask import redirect, url_for, render_template
+from flask import Flask, request
+from flask import redirect, url_for, render_template, jsonify
 
 # 引入全局变量
 from globalvar import *
@@ -89,6 +89,11 @@ def index():
         data = NewsBuffer
         )
 
+
+
+@app.route('/search_page/')
+def search_page():
+    return render_template('search.html')
 
 
 

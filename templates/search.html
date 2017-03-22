@@ -5,8 +5,8 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/search-form.css') }}" >
-	<script src="{{ url_for('static', filename='/js/jquery-1.11.0.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='/js/function.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery-1.11.0.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/function.js') }}"></script>
 
 </head>
 <body>
@@ -18,7 +18,7 @@
 					<h3>瓜 子 小 板 凳 组</h3>
 				</div>
 				<div class="headright">
-					<form onSubmit="submitFn(this, event);">
+					<form onSubmit="submitFn(this, event);" method="get">
 						<div class="search-wrapper">
 							<div class="input-holder">
 								<input type="text" class="search-input" placeholder="请输入关键词" />
@@ -33,19 +33,17 @@
 		</div>
 
 
-		<div class=searchcontainer>
-			这里是搜索的内容
-		</div>
+		<div class="searchcontainer"></div>
 
 
 		<div class="footer">
 			<hr class="footer-line" />
 			<div class="footercontainer">
 				<ul class="list">
-					<li><a href="http://news.qq.com/" class="pic"><img src="{{url_for('static', filename='/pic/tecent.png') }}"></a></li>
-					<li><a href="http://news.sina.com.cn/" class="pic"><img src="{{url_for('static', filename='/pic/Reddit.png') }}"></a></li>
-					<li><a href="http://news.baidu.cn/" class="pic"><img src="{{url_for('static', filename='/pic/baidu.png') }}"></a></li>
-					<li><a href="https://www.toutiao.com/" class="pic"><img src="{{url_for('static', filename='/pic/toutiao.png') }}"></a></li>
+					<li><a href="http://news.qq.com/" class="pic"><img src="{{url_for('static', filename='pic/tecent.png') }}"></a></li>
+					<li><a href="http://news.sina.com.cn/" class="pic"><img src="{{url_for('static', filename='pic/Reddit.png') }}"></a></li>
+					<li><a href="http://news.baidu.cn/" class="pic"><img src="{{url_for('static', filename='pic/baidu.png') }}"></a></li>
+					<li><a href="https://www.toutiao.com/" class="pic"><img src="{{url_for('static', filename='pic/toutiao.png') }}"></a></li>
 				</ul>
 				<div class="connect">Connect</div>
 			<div>
