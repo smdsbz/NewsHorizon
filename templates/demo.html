@@ -36,12 +36,10 @@
 			<div class="cascade">
 				<ul class="menu">
 					<li>
-						{% for each in data %}
-							<h3>{{ each }}</h3>
-							{% for line in data[each] %}
-							<a href="{{ line[1] }}" target="_blank">{{ each[0] }}</a>
+							<h3>Reddit</h3>
+							{% for line in data['reddit'] %}
+							<a href="{{ line[1] }}" target="_blank">{{ line[0] }}</a>
 							{% endfor %}
-						{% endfor %}
 					</li>
 					<li class="three" id="three">
 						<h3>百度</h3>

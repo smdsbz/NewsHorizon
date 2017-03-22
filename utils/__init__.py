@@ -113,7 +113,7 @@ class NewsContainer(object):
                 self._store_room[each] = tmp_buffer[each][:_MAX_SIZE]
 
 
-        time.sleep(_INTERVAL)
+        # time.sleep(_INTERVAL)
 
 
 

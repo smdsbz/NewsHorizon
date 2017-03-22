@@ -17,32 +17,46 @@ from globalvar import *
 # import time
 
 
-# from utils import NewsContainer, _INTERVAL
+import threading, time
+
+
+from utils import NewsContainer, _INTERVAL
 
 
 ######## initialization ########
 
 app = Flask(__name__)
 
+NewsBuffer = NewsContainer()
+
 
 
 ######## NewsBuffer ########
 
-# TODO: multiprocessing required
+# TODO: threading
+
+class BufferThread(threading.Thread):
+
+    def __init__(self, threadID, name):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
 
 
-#
-#
-# def refresh_buffer():
-#     NewsBuffer = NewsContainer()
-#     while True:
-#         NewsBuffer.refresh()
-#
-#
-#
-#
-# master = Queue()
-# slave_refresh = Process()
+    def run(self):
+
+        # if self.name == 'view':
+        #     app.run(host='127.0.0.1', debug=True)
+
+        if self.name == 'buffer':
+            global NewsBuffer
+            while True:
+                NewsBuffer.refresh()
+                print("NewsBuffer refreshed")
+                time.sleep(10)
+
+
+
 
 
 
@@ -81,7 +95,15 @@ def index():
 ######## starter ########
 
 if __name__ == '__main__':
-    app.run(
-        host='127.0.0.1',
-        debug=True
-    )
+
+    thread_buff = BufferThread(2, 'buffer')
+
+    thread_buff.start()
+    time.sleep(5)
+    app.run(host='127.0.0.1', debug=True)
+
+    thread_buff.join()
+
+    print("Sevice stopped") # this should not show
+
+    # you may exit by ^C multiple times
