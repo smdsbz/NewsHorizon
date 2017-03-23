@@ -101,12 +101,24 @@ def display(source):
 
 
 
-
-
-
 @app.route('/search_page/')
 def search_page():
     return render_template('search.html')
+
+
+
+@app.route('/searching/')
+def searching():
+    title = request.args.get('title')
+    print("searching", title)
+    # TODO: the search() function
+    result = (
+        ('title1', '#!', 'date and time', 'source'),
+        ('title2', '#!', 'date and time', 'source'),
+    )
+    return jsonify(
+        result=result
+    )
 
 
 
