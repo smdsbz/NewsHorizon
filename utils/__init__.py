@@ -21,7 +21,7 @@ __author__ = 'smdsbz'
 
 
 # buffer size
-_MAX_SIZE = 5
+_MAX_SIZE = 500
 
 # refresh interval
 _INTERVAL = 60
@@ -113,7 +113,6 @@ class NewsContainer(object):
                 self._store_room[each] = tmp_buffer[each][:_MAX_SIZE]
 
 
-        # time.sleep(_INTERVAL)
 
 
 

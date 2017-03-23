@@ -3,11 +3,23 @@ body{
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	font-family: "Arial", "Microsoft Yahei", "Pingfang SC", sans-serif;
 }
 
 a {
 	color: #dedede;
 	display: block;
+	font-size: 1.12em;
+	margin-bottom: .08em;
+	text-decoration: none;
+	transition: font-size .2s, color .2s;
+	-webkit-transition: font-size .2s, color .2s;
+	-moz-transition: font-size .2s, color .2s;
+}
+
+a:hover {
+	color: white;
+	font-size: 1.27em
 }
 
 .container{
@@ -29,7 +41,7 @@ a {
 	color:#dedede;
 	float: left;
 	font-weight: 100;
-	font-family:"SimHei";
+	/*font-family:"SimHei";*/
 	text-align: center;
 }
 
@@ -175,4 +187,6 @@ li.four{
 	height: 800px;
 	color: white;
 	width: 65%;
+	margin: auto;
+	margin-top: 2.5em;
 }

@@ -54,7 +54,7 @@ def get():
     _write_to_db(treated)
 
 
-    return raw
+    return treated
 
 
 

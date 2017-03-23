@@ -51,9 +51,10 @@ class BufferThread(threading.Thread):
         if self.name == 'buffer':
             global NewsBuffer
             while True:
-                NewsBuffer.refresh()
+                while len(NewsBuffer['reddit']) == 0:
+                    NewsBuffer.refresh()
                 print("NewsBuffer refreshed")
-                time.sleep(10)
+                time.sleep(_INTERVAL)
 
 
 
@@ -88,6 +89,18 @@ def index():
         'demo.html',
         data = NewsBuffer
         )
+
+
+@app.route('/display/<source>')
+def display(source):
+    return render_template(
+        'display.html',
+        source=source,
+        data=NewsBuffer
+    )
+
+
+
 
 
 

@@ -18,16 +18,11 @@
 					<h3>瓜 子 小 板 凳 组</h3>
 				</div>
 				<div class="headright">
-					<form onSubmit="">
 						<div class="search-wrapper">
 							<div class="input-holder">
-								<input type="text" class="search-input" placeholder="请输入关键词" />
-								<button class="search-icon" onClick="location.href='{{ url_for('search_page') }}'"><span></span></button>
+								<button class="search-icon" onclick="location.href='{{ url_for('search_page') }}'"><span></span></button>
 							</div>
-							<span class="close" onClick=""></span>
-							<div class="result-container"></div>
 						</div>
-					</form>
 				</div>
 			</div>
 		</div>
@@ -35,20 +30,19 @@
 		<div class="page">
 			<div class="cascade">
 				<ul class="menu">
-					<li class="one">
+					<li class="one" onClick="location.href='{{ url_for('display', source='tencent') }}'">
 						<h3>腾讯</h3>
-						<a href="/search.html"></a>
 					</li>
-					<li class="two">
+					<li class="two" onclick="location.href='{{ url_for('display', source='reddit') }}'">
 						<h3>Reddit</h3>
+						<span style="color:white;">(Not quite stable)</span>
 					</li>
-					<li class="three">
-						<h3>百度</h3>
-						<a href="/search.html"></a>
+					<li class="three" onclick="location.href='{{ url_for('display', source='sina') }}'">
+						<h3>新浪</h3>
 					</li>
 					<li class="four">
 						<h3>今日头条</h3>
-						<a href="/search.html"></a>
+						<a href="#!"></a>
 					</li>
 				</ul>
 			</div>

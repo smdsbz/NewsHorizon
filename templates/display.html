@@ -33,7 +33,12 @@
 		</div>
 
 
-		<div class="searchcontainer"></div>
+		<div class="searchcontainer">
+
+			{% for each in data[source] %}
+			<a href="{{ each[1] }}" target="_blank">{{ each[0] }}</a>
+			{% endfor %}
+		</div>
 
 
 		<div class="footer">
@@ -52,13 +57,4 @@
 	</div>
 
 </body>
-
-<script>
-$(document).ready(function(){
-	$("button[class='search-icon']").click();
-})
-
-</script>
-
-
 </html>
