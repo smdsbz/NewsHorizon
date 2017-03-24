@@ -19,13 +19,14 @@ a {
 
 a:hover {
 	color: white;
-	font-size: 1.27em
+	font-size: 1.27em;
 }
 
 .container{
 	min-height: 100%;
 	height: auto;
 	height: 100%;
+	overflow: scroll;
 	position: relative;
 }
 
@@ -184,7 +185,8 @@ li.four{
 }
 
 .searchcontainer{
-	height: 800px;
+	min-height: 600px;
+	overflow: scroll;
 	color: white;
 	width: 65%;
 	margin: auto;
