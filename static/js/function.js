@@ -54,5 +54,12 @@ function show_result(news) {
 		<a href=" + news[i][1] + " target=\"_blank\">" + news[i][0] + "</a>\
 		"
 	}
-	$("div[class='searchcontainer']").html(buffer);
+	if (buffer != '') {
+		$("div[class='searchcontainer']").html(buffer);
+	}
+	else {
+		$("div[class='searchcontainer']").html(
+			'<span>无搜索结果！</span>'
+		);
+	}
 }

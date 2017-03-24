@@ -22,6 +22,8 @@ import threading, time
 
 from utils import NewsContainer, _INTERVAL
 
+from utils.search_news import search_news
+
 
 ######## initialization ########
 
@@ -110,12 +112,13 @@ def search_page():
 @app.route('/searching/')
 def searching():
     title = request.args.get('title')
-    print("searching", title)
+    # print("searching", title)
     # TODO: the search() function
-    result = (
-        ('title1', '#!', 'date and time', 'source'),
-        ('title2', '#!', 'date and time', 'source'),
-    )
+    # result = (
+    #     ('title1', '#!', 'date and time', 'source'),
+    #     ('title2', '#!', 'date and time', 'source'),
+    # )
+    result = search_news(title)
     return jsonify(
         result=result
     )
