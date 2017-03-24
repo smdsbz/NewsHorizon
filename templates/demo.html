@@ -40,9 +40,8 @@
 					<li class="three" onclick="location.href='{{ url_for('display', source='sina') }}'">
 						<h3>新浪</h3>
 					</li>
-					<li class="four">
-						<h3>今日头条</h3>
-						<a href="#!"></a>
+					<li class="four" onclick="location.href='{{ url_for('display', source='sohu') }}'">
+						<h3>搜狐</h3>
 					</li>
 				</ul>
 			</div>
@@ -55,7 +54,7 @@
 					<li><a href="http://news.qq.com/" class="pic"><img src="{{ url_for('static', filename='pic/tecent.png') }}"></a></li>
 					<li><a href="http://news.sina.com.cn/" class="pic"><img src="{{ url_for('static', filename='pic/sina.png') }}"></a></li>
 					<li><a href="http://news.baidu.cn/" class="pic"><img src="{{ url_for('static', filename='pic/baidu.png') }}"></a></li>
-					<li><a href="https://www.toutiao.com/" class="pic"><img src="{{ url_for('static', filename='pic/toutiao.png') }}"></a></li>
+					<li><a href="https://www.sohu.com/" class="pic"><img src="{{ url_for('static', filename='pic/sohu.png') }}"></a></li>
 				</ul>
 				<div class="connect">Connect</div>
 			<div>

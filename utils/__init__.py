@@ -7,7 +7,7 @@
 
 import time
 
-from . import reddit, tencent, sina
+from . import reddit, tencent, sina, sohu
 
 
 
@@ -31,7 +31,8 @@ _INTERVAL = 60
 __buffer_template = dict(
     reddit = [],
     tencent = [],
-    sina = []
+    sina = [],
+    sohu = []
 )
 
 
@@ -55,7 +56,8 @@ class NewsContainer(object):
         self._store_room = dict(
             reddit = [],
             tencent = [],
-            sina = []
+            sina = [],
+            sohu = []
         )
 
 
@@ -99,7 +101,8 @@ class NewsContainer(object):
         tmp_buffer = dict(
             reddit  = reddit.get(),
             tencent = tencent.get(),
-            sina    = sina.get()
+            sina    = sina.get(),
+            sohu    = sohu.get()
         )
 
         for each in tmp_buffer:
