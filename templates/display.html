@@ -18,16 +18,11 @@
 					<h3>瓜 子 小 板 凳 组</h3>
 				</div>
 				<div class="headright">
-					<form onSubmit="submitFn(this, event);" method="get">
 						<div class="search-wrapper">
 							<div class="input-holder">
-								<input type="text" class="search-input" name="content" placeholder="请输入关键词" />
-								<button class="search-icon" onClick="searchToggle(this, event);"><span></span></button>
+								<button class="search-icon" onclick="location.href='{{ url_for('search_page') }}'"><span></span></button>
 							</div>
-							<span class="close" onClick="searchToggle(this, event);"></span>
-							<div class="result-container"></div>
 						</div>
-					</form>
 				</div>
 			</div>
 		</div>

@@ -185,10 +185,11 @@ li.four{
 }
 
 .searchcontainer{
-	min-height: 600px;
-	overflow: scroll;
+	min-height: 400px;
+	/*overflow: scroll;*/
 	color: white;
 	width: 65%;
 	margin: auto;
 	margin-top: 2.5em;
+	padding-bottom: 100px;
 }
