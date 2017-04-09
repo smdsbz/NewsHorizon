@@ -67,7 +67,7 @@ def get():
     treated = []
     for each in zip(raw1, raw2):
         # 打算把所有的新闻都搜集到数据库的一个table里面，方便搜索
-        treated.append((each[1], 'http:'+each[0], sTime, 'sohu'))
+        treated.append((each[1], 'http://www.sohu.com'+each[0], sTime, 'sohu'))
 
 
     # print(treated)

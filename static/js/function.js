@@ -46,6 +46,8 @@ function submitFn(obj, evt){
 }
 
 
+
+
 function show_result(news) {
 	var buffer = '';
 	for (var i in news) {

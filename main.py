@@ -13,9 +13,6 @@ from globalvar import *
 # 注册 reddit.get() 功能
 # from utils import reddit, sina
 
-# from multiprocessing import Process, Queue
-# import time
-
 
 import threading, time
 
@@ -35,8 +32,6 @@ NewsBuffer = NewsContainer()
 
 ######## NewsBuffer ########
 
-# TODO: threading
-
 class BufferThread(threading.Thread):
 
     def __init__(self, threadID, name):
@@ -47,9 +42,6 @@ class BufferThread(threading.Thread):
 
     def run(self):
 
-        # if self.name == 'view':
-        #     app.run(host='127.0.0.1', debug=True)
-
         if self.name == 'buffer':
             global NewsBuffer
             while True:
@@ -57,9 +49,6 @@ class BufferThread(threading.Thread):
                     NewsBuffer.refresh()
                 print("NewsBuffer refreshed")
                 time.sleep(_INTERVAL)
-
-
-
 
 
 
@@ -85,8 +74,6 @@ def index():
 
       就像这样
     '''
-
-    # 话说我的前端啥时候好啊 /托腮
     return render_template(
         'demo.html',
         data = NewsBuffer
