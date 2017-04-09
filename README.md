@@ -1,10 +1,6 @@
 # NewsHorizon
 A simple website that presents you with latest feats of tech, using source from other news agencies.
-## Front-end
-### 前端样式
-参考[这里](http://news.qq.com/)
-当然我们估计用不了那么多。。。。
-短时间写不出CSS的话，就用[MaterializeCSS](http://materializecss.com/)吧，这样我也可以帮忙
+
 ## Back-end
 ### 后台函数格式要求
 ```
@@ -37,5 +33,3 @@ def get():
     pass
 ```
 
-## But how to ...??
-大家可以参考廖雪峰和菜鸟教程，也可以问我（当然上课时间我不能很快就回复就是了）
